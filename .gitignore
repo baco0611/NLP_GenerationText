@@ -1,0 +1,7 @@
+*.txt
+/Train_Full
+*.pkl
+*.joblib
+*.npz
+*.h5
+*.pth
