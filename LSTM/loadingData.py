@@ -42,8 +42,8 @@ def load_one_folder(folder_dir, file_dir, INPUT_LENGTH):
     for filename in os.listdir(folder_dir + '/' + file_dir):
         print(count, "Loading in file", filename)
         count+=1
-        # if count == 150:
-        #     break
+        if count == 150:
+            break
         f1 = open(folder_dir + '/' + file_dir + "/" + filename, encoding='utf-16')
         doc = f1.read()
         tokens = clean_document(doc)
@@ -63,22 +63,22 @@ def loading_data():
     path = '3.Full/'
     file_dir = "Vanhoa"
 
-    sequences = load_all_folder(folder_dir, INPUT_LENGTH)
-    # sequences = load_one_folder(folder_dir, file_dir, INPUT_LENGTH)
+    # sequences = load_all_folder(folder_dir, INPUT_LENGTH)
+    sequences = load_one_folder(folder_dir, file_dir, INPUT_LENGTH)
     
 
-    with open(path + "sequences.pkl", "wb") as f:
-        pickle.dump(sequences, f)
+    # with open(path + "sequences.pkl", "wb") as f:
+    #     pickle.dump(sequences, f)
 
-    tokenizer = keras.preprocessing.text.Tokenizer(filters='!"#$%&()*+,-./:;<=>?@[\]^`{|}~ ')
-    tokenizer.fit_on_texts(sequences)
+    # tokenizer = keras.preprocessing.text.Tokenizer(filters='!"#$%&()*+,-./:;<=>?@[\]^`{|}~ ')
+    # tokenizer.fit_on_texts(sequences)
 
-    with open(path + "tokenizer.pkl", "wb") as f:
-        pickle.dump(tokenizer, f)
+    # with open(path + "tokenizer.pkl", "wb") as f:
+    #     pickle.dump(tokenizer, f)
 
-    sequences_digit = tokenizer.texts_to_sequences(sequences)
+    # sequences_digit = tokenizer.texts_to_sequences(sequences)
 
-    with open(path + "sequences_digit.pkl", "wb") as f:
-        pickle.dump(sequences_digit, f)
+    # with open(path + "sequences_digit.pkl", "wb") as f:
+    #     pickle.dump(sequences_digit, f)
 
 loading_data()

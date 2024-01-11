@@ -1,5 +1,5 @@
 *.txt
-/Train_Full
+# /Train_Full
 *.pkl
 *.joblib
 *.npz

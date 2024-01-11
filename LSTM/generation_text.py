@@ -19,6 +19,8 @@ with open(path + '/sequences.pkl', 'rb') as f:
     sequences = pickle.load(f)
 
 model = load_model(path + '/51_acc_language_model.h5')
+print(tokenizer.word_index)
+print(len(tokenizer.word_index.keys()))
 
 def clean_document(doc):
     doc = ViTokenizer.tokenize(doc) #Pyvi Vitokenizer library
